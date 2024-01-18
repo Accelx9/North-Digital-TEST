@@ -12,6 +12,7 @@ export default function Home() {
       <Landing />
       <FirstSection />
       <SecondSection />
+      <div className="h-20 bg-primary w-full"></div>
     </main>
   );
 }

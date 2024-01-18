@@ -8,8 +8,8 @@ import Person3 from "@/assets/images/Person-3.webp";
 export const Landing = () => {
   return (
     <main className="container-landing h-screen w-screen">
-      <div className="w-full  h-full flex relative ">
-        <section className="ml-24 flex h-full items-center ">
+      <div className="w-full  h-full flex relative max-w-screen-2xl mx-auto ">
+        <section className="flex h-full items-center ">
           <article className="w-1/3">
             <h2 className=" text-7xl font-extrabold text-primary-dark">
               Lorem ipsum Design
@@ -28,23 +28,23 @@ export const Landing = () => {
             <Image
               src={Person1.src}
               alt="Picture of a computer"
-              width={150}
-              height={750}
-              className="absolute bottom-36 left-28 z-10 my-auto mt-10"
+              width={140}
+              height={75}
+              className="absolute bottom-[22%] left-32 z-10 my-auto mt-10"
             />
             <Image
               src={Person2.src}
               alt="Picture of a computer"
               width={170}
               height={85}
-              className="absolute bottom-[25%] left-[44%] z-10 my-auto mt-10"
+              className="absolute bottom-[28%] left-[44%] z-10 my-auto mt-10"
             />
             <Image
               src={Person3.src}
               alt="Picture of a computer"
               width={170}
               height={85}
-              className="absolute top-[18%] left-1/4 z-10 my-auto mt-10"
+              className="absolute top-[22%] left-1/4 z-10 my-auto mt-10"
             />
             <Image
               src={Computer.src}
