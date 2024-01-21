@@ -26,66 +26,8 @@ const sales: Sale[] = [
       },
     ],
     date: new Date(),
-  },
-  {
-    branchOffice: {
-      name: "Canada",
-      id: "1",
-    },
-    client: {
-      name: "Drakes",
-      id: "1",
-    },
-
-    currency: { name: "CAD", id: "1" },
-    details: [
-      {
-        name: "Devil dogs",
-        quantity: 100,
-        price: 4.5,
-      },
-    ],
-    date: new Date(),
-  },
-  {
-    branchOffice: {
-      name: "Canada",
-      id: "1",
-    },
-    client: {
-      name: "Drakes",
-      id: "1",
-    },
-
-    currency: { name: "CAD", id: "1" },
-    details: [
-      {
-        name: "Devil dogs",
-        quantity: 100,
-        price: 4.5,
-      },
-    ],
-    date: new Date(),
-  },
-  {
-    branchOffice: {
-      name: "Canada",
-      id: "1",
-    },
-    client: {
-      name: "Drakes",
-      id: "1",
-    },
-
-    currency: { name: "CAD", id: "1" },
-    details: [
-      {
-        name: "Devil dogs",
-        quantity: 100,
-        price: 4.5,
-      },
-    ],
-    date: new Date(),
+    totalSale: 10000,
+    id: "10",
   },
 ];
 

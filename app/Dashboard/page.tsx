@@ -1,4 +1,5 @@
 "use client";
+
 import { AddIcon } from "@/assets/icons";
 import Person1 from "@/assets/images/Person-1.webp";
 import { InputText, AutoComplete, Button, Modal, Alert } from "@/components";
@@ -40,8 +41,8 @@ const Home = () => {
   };
 
   return (
-    <div className="max-w-[85%] w-full h-full pb-4 sm:pb-0 sm:pt-10   m-auto">
-      <div className="flex mt-2 sm:mt-0 items-end">
+    <div className="max-w-[85%] w-full h-full lg:pb-0 pt-10   mx-auto">
+      <div className="flex mt-2 lg:mt-0 items-end">
         <Image
           src={Person1.src}
           alt="Picture of a computer"
@@ -50,42 +51,42 @@ const Home = () => {
           className=""
         />
         <div className=" pl-10 w-full">
-          <p className="text-4xl sm:text-5xl mb-6 font-extrabold">New Sale</p>
+          <p className="text-4xl lg:text-5xl mb-6 font-extrabold">New Sale</p>
           <hr className="h-1 mb-7 bg-slate-300   w-full" />
         </div>
       </div>
-      <p className="text-3xl sm:text-4xl mt-10">Document</p>
+      <p className="text-3xl lg:text-4xl mt-10">Document</p>
 
-      <div className="w-full  flex sm:gap-12 flex-wrap sm:flex-nowrap  mt-5">
-        <div className="w-full sm:w-5/12 flex">
+      <div className="w-full  flex lg:gap-12 flex-wrap lg:flex-nowrap  mt-5">
+        <div className="w-full lg:w-5/12 flex">
           <div className="w-10/12">
             <AutoComplete label="Client" name="client" />
           </div>
           <div className="w-2/12 mt-4 ">
             <Button
               onClick={handleToggleModal}
-              className="h-16 my-0 mx-0 mb-0 sm:ml-4  w-full"
+              className="h-16 my-0 mx-0 mb-0 lg:ml-4  w-full"
             >
-              <AddIcon className="mx-auto mt-2 h-8" />
+              <AddIcon className="mx-auto  mt-2 h-8" />
             </Button>
           </div>
         </div>
-        <div className="w-full mt-2 sm:mt-2 sm:w-5/12">
+        <div className="w-full mt-2 lg:mt-2 lg:w-5/12">
           <AutoComplete label="Branch Office" name="office" />
         </div>
-        <div className="w-full mt-2 sm:mt-2 sm:w-2/12">
+        <div className="w-full mt-2 lg:mt-2 lg:w-2/12">
           <InputText label="Currency" readOnly disabled name="currency" />
         </div>
       </div>
 
-      <p className="text-3xl sm:text-4xl mt-10">Details</p>
+      <p className="text-3xl lg:text-4xl mt-10">Details</p>
 
       {details.map((detail, index) => (
         <div
           key={index}
-          className="w-full  flex sm:gap-12 flex-wrap sm:flex-nowrap  mt-5"
+          className="w-full  flex lg:gap-12 flex-wrap lg:flex-nowrap  mt-5"
         >
-          <div className="w-full sm:w-5/12">
+          <div className="w-full lg:w-5/12">
             <AutoComplete
               label="Name"
               name="name"
@@ -95,8 +96,8 @@ const Home = () => {
               }
             />
           </div>
-          <div className="sm:w-1/2 flex flex-wrap sm:flex-nowrap sm:gap-12">
-            <div className="w-full mt-2 sm:mt-0 sm:w-1/3 ">
+          <div className="lg:w-1/2 flex flex-wrap lg:flex-nowrap lg:gap-12">
+            <div className="w-full mt-2 lg:mt-0 lg:w-1/3 ">
               <InputText
                 label="Quantity"
                 type="number"
@@ -108,7 +109,7 @@ const Home = () => {
                 }
               />
             </div>
-            <div className="w-full mt-2 sm:mt-0 sm:w-1/3 ">
+            <div className="w-full mt-2 lg:mt-0 lg:w-1/3 ">
               <InputText
                 label="Price"
                 readOnly
@@ -117,7 +118,7 @@ const Home = () => {
                 value={detail.price}
               />
             </div>
-            <div className="w-full mt-2 sm:mt-0 sm:w-1/3">
+            <div className="w-full mt-2 lg:mt-0 lg:w-1/3">
               <InputText
                 label="Subtotal"
                 readOnly
@@ -127,7 +128,7 @@ const Home = () => {
               />
             </div>
           </div>{" "}
-          <div className="w-full sm:w-1/12 sm:mt-4">
+          <div className="w-full lg:w-1/12 lg:mt-4">
             <Button className="h-16 grid place-items-center place-content-center my-0 mx-0 w-16">
               <AddIcon
                 onClick={() => handleRemoveDetail(index)}
@@ -143,7 +144,7 @@ const Home = () => {
       </Button>
 
       <div className="w-full flex gap-12">
-        <div className="w-full ml-auto gap-12 sm:w-1/5 sm:max-w-[20%]">
+        <div className="w-full ml-auto gap-12 lg:w-1/5 lg:max-w-[20%]">
           <InputText
             label="Total"
             readOnly
@@ -158,9 +159,9 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="my-6 flex justify-end">
-        <div className="sm:w-1/5 flex">
-          <Button className="px-7 w-full sm:w-1/2 ml-auto capitalize">
+      <div className="mt-6 h-44 md:h-auto  flex justify-end">
+        <div className="lg:w-1/5 flex">
+          <Button className="px-7 w-full lg:w-1/2 ml-auto capitalize">
             Save
           </Button>
         </div>

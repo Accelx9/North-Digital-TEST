@@ -39,7 +39,17 @@ const MenuItems = [
 export const Sidebar = () => {
   return (
     <Fragment>
-      <aside className="pt-10 h-screen bg-primary w-20">
+      <div className="bg-primary w-full flex justify-between md:hidden z-50   fixed bottom-0 h-20">
+        {MenuItems.map((item, index) => (
+          <MenuItem
+            key={index}
+            icon={item.icon}
+            path={`/Dashboard/${item.path}`}
+            text={item.name}
+          />
+        ))}
+      </div>
+      <aside className="pt-10 hidden md:block h-screen bg-primary w-20">
         {MenuItems.map((item, index) => (
           <MenuItem
             key={index}

@@ -17,5 +17,28 @@ export interface Sale {
   details: Detail[];
   date: Date;
   id: string;
-  salePrice: number;
+  totalSale: number;
+}
+
+export interface Client {
+  id: string;
+  rut: string;
+  name: string;
+  lastName: string;
+  address: string;
+  phone: string;
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  stock: number;
+  price: number;
+}
+
+export interface BranchOffice {
+  id: string;
+  name: string;
+  country: string;
+  currency: string;
 }

@@ -41,7 +41,7 @@ export const SaleDetails = ({ sale }: { sale: Sale }) => {
       ))}
       <p className="text-xl my-6">
         <strong>Total:</strong> {"   "}
-        {sale.salePrice}
+        {sale.totalSale}
       </p>
     </Fragment>
   );
