@@ -11,7 +11,7 @@ const Line = ({ border, mb, mt, hover }: PropsLine) => (
   <hr
     className={`w-full mt-${mt || 4} mb-${mb || 2} border-${border || 4}  h-${
       border || 2
-    }  ${hover && "border-primary"} lines border-white`}
+    }  ${hover ? "border-primary" : "border-white"}  `}
   />
 );
 

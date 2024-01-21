@@ -7,11 +7,11 @@ const styles = "font-bold mr-10 text-lg hover:text-primary transition-all";
 const links = [
   {
     label: "Content 1",
-    path: "/Content1",
+    path: "#content1",
   },
   {
     label: "Content 2",
-    path: "/Content2",
+    path: "#content2",
   },
   {
     label: "Login",
@@ -29,6 +29,7 @@ export const Navbar = () => {
           <Link
             href={link.path}
             key={index}
+            scroll={false}
             className={`${styles} ${isActive && "text-primary "}`}
           >
             {link.label}

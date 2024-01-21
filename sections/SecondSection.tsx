@@ -3,7 +3,10 @@ const array = [1, 2, 3];
 
 export const SecondSection = () => {
   return (
-    <section className="h-screen w-screen bg-primary-light flex justify-center items-center ">
+    <section
+      id="content2"
+      className="h-screen w-screen bg-primary-light flex justify-center items-center "
+    >
       <div className="max-w-screen-2xl  flex flex-col  ">
         <article className="w-1/3 ml-auto">
           <h2 className=" text-7xl font-extrabold text-primary-dark">

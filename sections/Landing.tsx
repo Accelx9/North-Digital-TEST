@@ -4,6 +4,8 @@ import Computer from "@/assets/images/Background-pc.webp";
 import Person1 from "@/assets/images/Person-1.webp";
 import Person2 from "@/assets/images/Person-2.webp";
 import Person3 from "@/assets/images/Person-3.webp";
+import Link from "next/link";
+import { Button } from "@/components";
 
 export const Landing = () => {
   return (
@@ -20,9 +22,9 @@ export const Landing = () => {
               architecto sed ducimus rerum consectetur dolore sit, quis minus.
               Ratione, iure aliquid!
             </p>
-            <button className="bg-primary my-10  mt-4 text-white font-bold uppercase h-16 w-36 hover:bg-secondary transition-all">
-              Login
-            </button>
+            <Link href={"/Dashboard"}>
+              <Button>Login</Button>
+            </Link>
           </article>{" "}
           <section className="w-2/3 flex h-full relative">
             <Image

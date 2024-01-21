@@ -23,6 +23,7 @@ const config: Config = {
       "primary-dark": "#192843ff",
       "primary-light": "#ecf4ffff",
       grey: "#99a4b6ff",
+      light: "#f6f7faff",
     },
   },
   plugins: [],
