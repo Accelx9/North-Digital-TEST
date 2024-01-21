@@ -15,13 +15,15 @@ const styles = {
 
 export const Alert = ({ message, severity, show }: Props) => {
   return (
-    <div
-      className={`absolute top-10 w-64  border-l-4 left-1/2 right-1/2 border px-4 py-3 rounded ${
-        styles[severity]
-      } ${show ? "opacity-100" : "opacity-0"} transition-all`}
-      role="alert"
-    >
-      <p>{message}</p>
+    <div className="flex w-full justify-center absolute top-10">
+      <div
+        className={` w-64  border-l-4  mx-auto border px-4 py-3 rounded ${
+          styles[severity]
+        } ${show ? "opacity-100" : "opacity-0"} transition-all`}
+        role="alert"
+      >
+        <p>{message}</p>
+      </div>
     </div>
   );
 };

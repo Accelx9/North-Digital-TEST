@@ -40,7 +40,7 @@ const Home = () => {
   };
 
   return (
-    <div className="max-w-[85%] w-full h-full pb-4 sm:pb-0  sm:h-[80%]  m-auto">
+    <div className="max-w-[85%] w-full h-full pb-4 sm:pb-0 sm:pt-10   m-auto">
       <div className="flex mt-2 sm:mt-0 items-end">
         <Image
           src={Person1.src}
@@ -54,9 +54,9 @@ const Home = () => {
           <hr className="h-1 mb-7 bg-slate-300   w-full" />
         </div>
       </div>
-      <p className="text-3xl sm:text-4xl mt-16">Document</p>
+      <p className="text-3xl sm:text-4xl mt-10">Document</p>
 
-      <div className="w-full  flex sm:gap-12 flex-wrap sm:flex-nowrap  mt-10">
+      <div className="w-full  flex sm:gap-12 flex-wrap sm:flex-nowrap  mt-5">
         <div className="w-full sm:w-5/12 flex">
           <div className="w-10/12">
             <AutoComplete label="Client" name="client" />
@@ -78,12 +78,12 @@ const Home = () => {
         </div>
       </div>
 
-      <p className="text-3xl sm:text-4xl mt-16">Details</p>
+      <p className="text-3xl sm:text-4xl mt-10">Details</p>
 
       {details.map((detail, index) => (
         <div
           key={index}
-          className="w-full  flex sm:gap-12 flex-wrap sm:flex-nowrap  mt-10"
+          className="w-full  flex sm:gap-12 flex-wrap sm:flex-nowrap  mt-5"
         >
           <div className="w-full sm:w-5/12">
             <AutoComplete
@@ -138,7 +138,7 @@ const Home = () => {
         </div>
       ))}
 
-      <Button onClick={handleAddDetail} className="my-16 capitalize">
+      <Button onClick={handleAddDetail} className="my-6 capitalize">
         Add
       </Button>
 
@@ -158,7 +158,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="my-16 flex justify-end">
+      <div className="my-6 flex justify-end">
         <div className="sm:w-1/5 flex">
           <Button className="px-7 w-full sm:w-1/2 ml-auto capitalize">
             Save
@@ -166,13 +166,7 @@ const Home = () => {
         </div>
       </div>
       {showModal && <FormClient handleDismiss={handleToggleModal} />}
-      {showAlert && (
-        <Alert
-          handleDismiss={() => setShowAlert(false)}
-          severity="success"
-          message="uwu"
-        />
-      )}
+      {showAlert && <Alert severity="success" message="uwu" />}
     </div>
   );
 };
