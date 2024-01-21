@@ -17,7 +17,7 @@ export const AddIcon = (props: SVGProps<SVGSVGElement>) => (
       d="M0 0h-6.516v-6.442h-3.939V0h-6.517v3.682h6.517v6.442h3.939V3.682H0Z"
       clipPath="url(#a)"
       style={{
-        fill: "#fff",
+        fill: "currentColor",
         fillOpacity: 1,
         fillRule: "nonzero",
         stroke: "none",

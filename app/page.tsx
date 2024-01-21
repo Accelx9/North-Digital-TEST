@@ -1,5 +1,5 @@
 import { Navbar } from "@/components/Navbar";
-import { FirstSection, Landing, SecondSection } from "@/sections";
+import { FirstSection, Landing, SecondSection } from "@/sections/public";
 import Head from "next/head";
 
 export default function Home() {
