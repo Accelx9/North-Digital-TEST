@@ -10,15 +10,26 @@ import { useState } from "react";
 const Home = () => {
   const [details, setDetails] = useState<Detail[]>([InitialStateDetails]);
 
-  const handleAddItem = () => {
+  const handleAddDetail = () => {
     const temporalArray = [...details];
     temporalArray.push(InitialStateDetails);
     setDetails(temporalArray);
   };
 
-  const handleRemoveItem = (position: number) => {
+  const handleRemoveDetail = (position: number) => {
     const temporalArray = [...details];
+    if (temporalArray.length === 1) return;
     temporalArray.splice(position, 1);
+    setDetails(temporalArray);
+  };
+
+  const handleChangeDetail = (
+    property: "product" | "quantity",
+    value: string,
+    index: number
+  ) => {
+    const temporalArray = [...details];
+    temporalArray[index] = { ...temporalArray[index], [property]: value };
     setDetails(temporalArray);
   };
 
@@ -40,20 +51,20 @@ const Home = () => {
       <p className="text-4xl mt-16">Document</p>
 
       <div className="w-full  flex sm:gap-12 flex-wrap sm:flex-nowrap  mt-10">
-        <div className="w-full sm:w-2/5 flex items-center">
+        <div className="w-full sm:w-5/12 flex">
           <div className="w-10/12">
             <AutoComplete label="Client" name="client" />
           </div>
-          <div className="w-2/12 mt-auto ">
-            <Button className="h-16 my-0 mx-0 ml-4 w-16">
+          <div className="w-2/12 mt-4 ">
+            <Button className="h-16 my-0 mx-0 ml-4  w-full">
               <AddIcon className="mx-auto mt-2 h-8" />
             </Button>
           </div>
         </div>
-        <div className="w-full sm:w-2/5">
+        <div className="w-full sm:w-5/12">
           <AutoComplete label="Branch Office" name="office" />
         </div>
-        <div className="w-full sm:w-1/5">
+        <div className="w-full sm:w-2/12">
           <InputText label="Currency" readOnly disabled name="currency" />
         </div>
       </div>
@@ -65,19 +76,30 @@ const Home = () => {
           key={index}
           className="w-full  flex sm:gap-12 flex-wrap sm:flex-nowrap  mt-10"
         >
-          <div className="w-full sm:w-2/5">
-            <AutoComplete label="Name" name="name" value={detail.product} />
+          <div className="w-full sm:w-5/12">
+            <AutoComplete
+              label="Name"
+              name="name"
+              value={detail.name}
+              onChange={(event) =>
+                handleChangeDetail("product", event.target.value, index)
+              }
+            />
           </div>
-          <div className="w-2/5 flex flex-wrap sm:flex-nowrap sm:gap-12">
-            <div className="w-full sm:w-1/2 ">
+          <div className="sm:w-1/2 flex sm:gap-12">
+            <div className="w-full sm:w-1/3 ">
               <InputText
                 label="Quantity"
                 type="number"
                 name="quantity"
+                min={0}
                 value={detail.quantity}
+                onChange={(event) =>
+                  handleChangeDetail("quantity", event.target.value, index)
+                }
               />
             </div>
-            <div className="w-full sm:w-1/2 ">
+            <div className="w-full sm:w-1/3 ">
               <InputText
                 label="Price"
                 readOnly
@@ -86,9 +108,7 @@ const Home = () => {
                 value={detail.price}
               />
             </div>
-          </div>
-          <div className="w-full sm:w-1/5 flex sm:gap-10 items-center">
-            <div className="w-3/4">
+            <div className="w-full sm:w-1/3">
               <InputText
                 label="Subtotal"
                 readOnly
@@ -96,20 +116,20 @@ const Home = () => {
                 name="subtotal"
                 value={detail.price || 0 * detail.quantity}
               />
-            </div>{" "}
-            <div className="w-1/4 mt-auto">
-              <Button className="h-16 grid place-items-center place-content-center my-0 mx-0 w-16">
-                <AddIcon
-                  onClick={() => handleRemoveItem(index)}
-                  className="h-8 w-8 rotate-45 mt-3"
-                />
-              </Button>
             </div>
+          </div>{" "}
+          <div className="w-full sm:w-1/12 sm:mt-4">
+            <Button className="h-16 grid place-items-center place-content-center my-0 mx-0 w-16">
+              <AddIcon
+                onClick={() => handleRemoveDetail(index)}
+                className="h-8 w-8 rotate-45 mt-3"
+              />
+            </Button>
           </div>
         </div>
       ))}
 
-      <Button onClick={handleAddItem} className="my-16 capitalize">
+      <Button onClick={handleAddDetail} className="my-16 capitalize">
         Add
       </Button>
 
@@ -131,7 +151,9 @@ const Home = () => {
 
       <div className="my-16 flex justify-end">
         <div className="sm:w-1/5 flex">
-          <Button className="px-7 w-full sm:w-1/2 ml-auto">Save</Button>
+          <Button className="px-7 w-full sm:w-1/2 ml-auto capitalize">
+            Save
+          </Button>
         </div>
       </div>
     </div>
