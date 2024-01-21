@@ -5,8 +5,9 @@ import { Button } from ".";
 interface Props {
   title: string;
   children: React.ReactNode;
-  handleSubmit: VoidFunction;
+  handleSubmit?: VoidFunction;
   handleDismiss: VoidFunction;
+  textClose?: string;
 }
 
 /**
@@ -17,6 +18,7 @@ interface Props {
  * @returns {React.JSX.Element}
  */
 export const Modal = ({
+  textClose = "Cancel",
   children,
   title,
   handleSubmit,
@@ -48,19 +50,20 @@ export const Modal = ({
                 className="capitalize"
                 onClick={() => {
                   handleDismiss();
-                  handleSubmit();
                 }}
               >
-                Cancel
+                {textClose}
               </Button>
-              <Button
-                className="capitalize"
-                onClick={() => {
-                  handleSubmit();
-                }}
-              >
-                Save
-              </Button>
+              {handleSubmit && (
+                <Button
+                  className="capitalize"
+                  onClick={() => {
+                    handleSubmit();
+                  }}
+                >
+                  Save
+                </Button>
+              )}{" "}
             </div>
           </div>
         </div>

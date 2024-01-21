@@ -1,5 +1,5 @@
 export const InitialStateDetails = {
-  price: undefined,
+  price: 0,
   quantity: 0,
   name: "",
 };

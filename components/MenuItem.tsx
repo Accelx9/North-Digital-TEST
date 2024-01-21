@@ -18,7 +18,7 @@ export const MenuItem = ({ path, text, icon }: Props) => {
   return (
     <div className=" relative  h-20  flex w-20 ">
       <Link
-        href={`/${path}`}
+        href={`${path}`}
         onMouseEnter={() => handleMouseEnter(true)}
         onMouseLeave={() => handleMouseEnter(false)}
         className="bg-primary h-full items-center flex justify-center cursor-pointer  w-20 hover:bg-secondary transition-all "

@@ -44,7 +44,7 @@ export const Sidebar = () => {
           <MenuItem
             key={index}
             icon={item.icon}
-            path={item.path}
+            path={`/Dashboard/${item.path}`}
             text={item.name}
           />
         ))}
