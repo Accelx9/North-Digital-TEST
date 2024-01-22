@@ -6,7 +6,8 @@ import path from "path";
 
 export async function POST(req: Request, res: NextApiResponse) {
   const filePath = path.join(process.cwd(), "data.json");
-
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "*");
   try {
     const existingData = fs.existsSync(filePath)
       ? JSON.parse(fs.readFileSync(filePath, "utf-8"))
