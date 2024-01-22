@@ -39,7 +39,7 @@ const Page = () => {
         {sales.map((sale, index) => (
           <div
             key={index}
-            className="bg-white shadow-lg w-full  sm:w-64 h-48 p-3 rounded-lg"
+            className="bg-white shadow-lg flex flex-col w-full  sm:w-64 h-48 p-3 rounded-lg"
           >
             <h4 className="text-md">
               <strong>Date of sale: </strong>
@@ -53,9 +53,12 @@ const Page = () => {
               <strong>Branch Office: </strong>
               {sale.branchOffice?.name}{" "}
             </h4>
-            <div className="flex mt-4 items-end justify-end">
-              <Button className="h-9" onClick={() => handleToggleModal(sale)}>
-                Ver detalles
+            <div className="flex mt-auto items-end justify-end">
+              <Button
+                className="h-9 mt-auto capitalize"
+                onClick={() => handleToggleModal(sale)}
+              >
+                View details
               </Button>
             </div>
           </div>

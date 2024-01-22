@@ -16,6 +16,23 @@
   background-size: 75% 100%;
 }
 
+.animate {
+  animation-name: animate;
+  animation-duration: 0.8s;
+}
+
+@keyframes animate {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @font-face {
   font-family: "Open Sans";
   src: url("../assets/fonts/OpenSans-SemiBold.ttf"),

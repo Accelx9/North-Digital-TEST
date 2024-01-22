@@ -49,13 +49,17 @@ const Page = () => {
     const { password, username } = values;
     setErrors({});
     if (!username) {
-      handleAlert("warning", "The name is required.");
+      handleAlert("warning", "The username is required.");
       setErrors((prev) => ({ ...prev, username: true }));
       return;
     }
     if (!password) {
       handleAlert("warning", "The password is required.");
       setErrors((prev) => ({ ...prev, password: true }));
+      return;
+    }
+    if (username !== "latham" || password !== "12345!") {
+      handleAlert("warning", "The username or password are incorrect.");
       return;
     }
     router.push("/Dashboard");
@@ -82,6 +86,7 @@ const Page = () => {
               <InputText
                 label="Password"
                 name="password"
+                type="password"
                 error={errors.password}
                 onChange={handleChange}
               />

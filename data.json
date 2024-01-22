@@ -38,6 +38,44 @@
       ],
       "date": "2024-01-22T01:32:02.026Z",
       "id": "255bb73b-aa16-4402-8452-7f62e987f311"
+    },
+    {
+      "currency": {
+        "id": "PEN",
+        "name": "Peruvian sol"
+      },
+      "client": {
+        "id": "2885cbc7-c213-4f29-8ab8-f138e22c5425",
+        "rut": 529641730,
+        "name": "Maria",
+        "lastName": "Dorsey",
+        "address": "USCGC Phillips\nFPO AA 89583",
+        "phone": "581-340-4172"
+      },
+      "branchOffice": {
+        "id": "cd6316de-ead9-44d9-b685-88825e4d3c4c",
+        "name": "Henderson Inc",
+        "country": "Guatemala",
+        "currency": [
+          "PEN",
+          "Peruvian sol"
+        ]
+      },
+      "totalSale": "426069498",
+      "details": [
+        {
+          "price": 71011583,
+          "quantity": "6",
+          "product": {
+            "id": "fe3b7974-82cb-417b-9864-76bb4f539db8",
+            "name": "Awesome Pizza",
+            "stock": "784",
+            "price": "71011583"
+          }
+        }
+      ],
+      "date": "2024-01-22T03:59:46.874Z",
+      "id": "0ba4bd90-6f43-40ab-bb77-70d4d914bdcd"
     }
   ],
   "clients": [

@@ -128,6 +128,7 @@ const Home = () => {
 
       if (response.ok) {
         handleAlert("success", "Sale created successfully");
+        router.push("/Dashboard/Sales");
       }
     } catch (error) {
       handleAlert("error", "Ooops we had an error creating the sale");
