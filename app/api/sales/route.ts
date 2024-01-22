@@ -29,7 +29,3 @@ export async function POST(req: Request, res: NextApiResponse) {
     res.status(500).json({ success: false, message: "Internal server error." });
   }
 }
-
-export default cors({
-  origin: "https://north-digital-test-z9ds.vercel.app",
-});
