@@ -15,7 +15,6 @@ export async function POST(req: Request, res: NextApiResponse) {
     // New object to insert into the "sales" array
 
     const newSalesObject = await req.json();
-    console.log(newSalesObject);
     // Push the new object into the "sales" array
     existingData.sales.push(newSalesObject);
 
@@ -29,7 +28,6 @@ export async function POST(req: Request, res: NextApiResponse) {
     //   message: 'New object inserted into the "sales" array.',
     // });
   } catch (error) {
-    console.error("Error:", error);
     res.status(500).json({ success: false, message: "Internal server error." });
   }
 }

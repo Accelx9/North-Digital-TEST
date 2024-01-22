@@ -116,7 +116,7 @@ const Home = () => {
       date: new Date(),
       id: uuidv4(),
     };
-    console.log(body);
+
     try {
       const response = await fetch("api/sales", {
         method: "POST",
@@ -128,8 +128,6 @@ const Home = () => {
 
       if (response.ok) {
         handleAlert("success", "Sale created successfully");
-      } else {
-        console.error("Failed to add sales object:", response.statusText);
       }
     } catch (error) {
       handleAlert("error", "Ooops we had an error creating the sale");

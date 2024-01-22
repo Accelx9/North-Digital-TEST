@@ -12,7 +12,6 @@ export async function POST(req: Request, res: NextApiResponse) {
       : { sales: [], clients: [] };
 
     const newClientObject = await req.json();
-    console.log(newClientObject);
     existingData.clients.push(newClientObject);
 
     fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
@@ -20,7 +19,6 @@ export async function POST(req: Request, res: NextApiResponse) {
       newClientObject,
     });
   } catch (error) {
-    console.error("Error:", error);
     res.status(500).json({ success: false, message: "Internal server error." });
   }
 }
