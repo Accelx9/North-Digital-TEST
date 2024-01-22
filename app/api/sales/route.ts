@@ -16,8 +16,7 @@ export async function POST(req: Request, res: NextApiResponse) {
     existingData.sales.push(newSalesObject);
 
     fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
-    return NextResponse.json({
-      newSalesObject,
+    return new NextResponse(JSON.stringify(newSalesObject), {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST",
