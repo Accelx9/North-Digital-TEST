@@ -1,4 +1,5 @@
 "use server";
+import cors from "cors";
 import fs from "fs";
 import { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
@@ -27,3 +28,7 @@ export async function POST(req: Request, res: NextApiResponse) {
     res.status(500).json({ success: false, message: "Internal server error." });
   }
 }
+
+export default cors({
+  origin: "https://north-digital-test-z9ds.vercel.app",
+});
