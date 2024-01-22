@@ -1,4 +1,3 @@
-import cors from "cors";
 import fs from "fs";
 import { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
@@ -16,14 +15,7 @@ export async function POST(req: Request, res: NextApiResponse) {
     existingData.clients.push(newClientObject);
 
     fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
-    return new NextResponse("Client added successfully!", {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-      },
-      status: 200,
-    });
+    return res.status(200).json({ success: true, message: "Client created." });
   } catch (error) {
     res.status(500).json({ success: false, message: "Internal server error." });
   }
