@@ -1,10 +1,9 @@
 "use server";
 import fs from "fs";
-import { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 import path from "path";
 
-export async function POST(req: Request, res: NextApiResponse) {
+export async function POST(req: Request, res: NextResponse) {
   const filePath = path.join(process.cwd(), "data.json");
 
   try {
@@ -16,8 +15,17 @@ export async function POST(req: Request, res: NextApiResponse) {
     existingData.sales.push(newSalesObject);
 
     fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
-    return res.status(200);
+    return new NextResponse("Sale added successfully!", {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+      status: 200,
+    });
   } catch (error) {
-    res.status(500).json({ success: false, message: "Internal server error." });
+    new NextResponse("Error", {
+      status: 500,
+    });
   }
 }
