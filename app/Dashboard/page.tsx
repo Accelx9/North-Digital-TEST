@@ -259,7 +259,7 @@ const Home = () => {
       <p className="text-3xl lg:text-4xl mt-10">Document</p>
 
       <div className="w-full  flex lg:gap-12 flex-wrap lg:flex-nowrap  mt-5">
-        <div className="w-full lg:w-5/12 flex">
+        <div className="w-full lg:w-5/12 flex mt-2">
           <div className="w-10/12">
             <AutoComplete
               onChange={(e) => {
