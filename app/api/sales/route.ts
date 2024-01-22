@@ -16,7 +16,7 @@ export async function POST(req: Request, res: NextApiResponse) {
     existingData.sales.push(newSalesObject);
 
     fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
-    return res.status(200).json({ success: true, message: "Sale created." });
+    return res.status(200);
   } catch (error) {
     res.status(500).json({ success: false, message: "Internal server error." });
   }
