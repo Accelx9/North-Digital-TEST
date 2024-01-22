@@ -1,6 +1,6 @@
+"use server";
 import fs from "fs";
 import { NextApiResponse } from "next";
-import { NextResponse } from "next/server";
 import path from "path";
 
 export async function POST(req: Request, res: NextApiResponse) {

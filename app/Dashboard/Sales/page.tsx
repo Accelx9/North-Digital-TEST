@@ -5,7 +5,7 @@ import { SaleDetails } from "@/sections";
 import { Sale } from "@/types";
 import Image from "next/image";
 import { useState } from "react";
-import { sales } from "@/data.json";
+import data from "@/data.json";
 
 const Page = () => {
   // Show Modal Details
@@ -36,7 +36,7 @@ const Page = () => {
       </div>
 
       <div className="mt-10 flex flex-wrap gap-12">
-        {sales.map((sale, index) => (
+        {data.sales.map((sale, index) => (
           <div
             key={index}
             className="bg-white shadow-lg flex flex-col w-full  sm:w-64 h-48 p-3 rounded-lg"
