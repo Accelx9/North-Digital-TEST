@@ -1,6 +1,6 @@
 ![Alt text](image.png)
 
-\*\* Test north digital
+** Test north digital
 
 Clone the repository
 Node version required: 18.17
