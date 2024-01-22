@@ -1,3 +1,4 @@
+"use server";
 import fs from "fs";
 import { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
