@@ -1,15 +1,8 @@
-import { Detail } from ".";
+import { Client, Detail } from ".";
 
 export interface Sale {
-  client: {
-    name: string;
-    id: string;
-  };
-
-  branchOffice: {
-    name: string;
-    id: string;
-  };
+  client: Client;
+  branchOffice: BranchOffice;
   currency: {
     name: string;
     id: string;
@@ -20,25 +13,21 @@ export interface Sale {
   totalSale: number;
 }
 
-export interface Client {
-  id: string;
-  rut: string;
-  name: string;
-  lastName: string;
-  address: string;
-  phone: string;
+export interface ErrorsSale {
+  client?: boolean;
+  branchOffice?: boolean;
 }
 
 export interface Product {
   id: string;
   name: string;
-  stock: number;
-  price: number;
+  stock: number | string;
+  price: number | string;
 }
 
 export interface BranchOffice {
   id: string;
   name: string;
   country: string;
-  currency: string;
+  currency: string[];
 }

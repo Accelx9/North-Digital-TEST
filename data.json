@@ -1,4 +1,45 @@
 {
+  "sales": [
+    {
+      "currency": {
+        "id": "ZMW",
+        "name": "Zambian kwacha"
+      },
+      "client": {
+        "id": "761f9b0e-c5d0-41a4-969c-26c49c058704",
+        "rut": 296326323,
+        "name": "Matthew",
+        "lastName": "Howell",
+        "address": "PSC 1078, Box 0740\nAPO AE 29014",
+        "phone": "573.281.4746"
+      },
+      "branchOffice": {
+        "id": "541b1fc1-bc8b-463e-8dfa-45bf262dfbf9",
+        "name": "Miller, Ortiz and Joseph",
+        "country": "Suriname",
+        "currency": [
+          "ZMW",
+          "Zambian kwacha"
+        ]
+      },
+      "totalSale": "0",
+      "details": [
+        {
+          "price": 92688481,
+          "quantity": "0",
+          "name": {},
+          "product": {
+            "id": "1b9d90a5-d686-46ee-9453-f08c84576f66",
+            "name": "Awesome Chicken",
+            "stock": "722",
+            "price": "92688481"
+          }
+        }
+      ],
+      "date": "2024-01-22T01:32:02.026Z",
+      "id": "255bb73b-aa16-4402-8452-7f62e987f311"
+    }
+  ],
   "clients": [
     {
       "id": "cdc1f37c-a89c-4ee2-890d-a0de48e25481",
@@ -7999,6 +8040,48 @@
       "lastName": "Flores",
       "address": "09276 Howell Radial\nWest Ronald, LA 19026",
       "phone": "(877)605-8323"
+    },
+    {
+      "address": "carrera 13 #  42-32 palmira",
+      "lastName": "",
+      "name": "",
+      "phone": "3252353",
+      "rut": "23123123",
+      "id": "f3e38631-448d-4e24-8987-928a64c9cc17",
+      "names": "Anderson",
+      "lastNames": "Lancet"
+    },
+    {
+      "address": "carrera 13 #  42-32 palmira",
+      "lastName": "Lancet",
+      "name": "Anderson",
+      "phone": "3252353",
+      "rut": "213213123",
+      "id": "ce838cff-e445-4504-bca5-4ba469e9fe45"
+    },
+    {
+      "address": "uw",
+      "lastName": "Martínez pruebaa",
+      "name": "Anderson",
+      "phone": "1212121",
+      "rut": "asdas",
+      "id": "c22603cc-b8c1-47ac-ac61-5dc9321d71a4"
+    },
+    {
+      "address": "uw",
+      "lastName": "Martínez pruebaa",
+      "name": "Anderson",
+      "phone": "1212121",
+      "rut": "324324",
+      "id": "3f2140b8-35d9-4354-816a-5adeb036b0f2"
+    },
+    {
+      "address": "uw",
+      "lastName": "Martínez pruebaa",
+      "name": "Anderson",
+      "phone": "1212121",
+      "rut": "324324",
+      "id": "c73933e6-0676-4fe0-ae54-97aefd2d1c00"
     }
   ],
   "offices": [
@@ -8006,61 +8089,91 @@
       "id": "d8b9488e-685a-4799-8c6f-142b2922468e",
       "name": "Sheppard-Hayes",
       "country": "Turks and Caicos Islands",
-      "currency": ["HUF", "Hungarian forint"]
+      "currency": [
+        "HUF",
+        "Hungarian forint"
+      ]
     },
     {
       "id": "541b1fc1-bc8b-463e-8dfa-45bf262dfbf9",
       "name": "Miller, Ortiz and Joseph",
       "country": "Suriname",
-      "currency": ["ZMW", "Zambian kwacha"]
+      "currency": [
+        "ZMW",
+        "Zambian kwacha"
+      ]
     },
     {
       "id": "cd6316de-ead9-44d9-b685-88825e4d3c4c",
       "name": "Henderson Inc",
       "country": "Guatemala",
-      "currency": ["PEN", "Peruvian sol"]
+      "currency": [
+        "PEN",
+        "Peruvian sol"
+      ]
     },
     {
       "id": "133014d9-647c-4e5a-b3b2-c8348374e3f3",
       "name": "Rodriguez Ltd",
       "country": "Malaysia",
-      "currency": ["BZD", "Belize dollar"]
+      "currency": [
+        "BZD",
+        "Belize dollar"
+      ]
     },
     {
       "id": "51a472e1-9d2a-4ed9-86d9-2509f270eba7",
       "name": "Hoover Ltd",
       "country": "Bahamas",
-      "currency": ["SRD", "Surinamese dollar"]
+      "currency": [
+        "SRD",
+        "Surinamese dollar"
+      ]
     },
     {
       "id": "18ade564-2f5f-46a1-a89c-619e633cfb30",
       "name": "Crawford-Ferguson",
       "country": "Barbados",
-      "currency": ["GBP", "Pound sterling"]
+      "currency": [
+        "GBP",
+        "Pound sterling"
+      ]
     },
     {
       "id": "cf232861-df76-4d3b-a641-c24dea74820d",
       "name": "Schaefer, Reyes and Bridges",
       "country": "Chad",
-      "currency": ["EGP", "Egyptian pound"]
+      "currency": [
+        "EGP",
+        "Egyptian pound"
+      ]
     },
     {
       "id": "d1e3edc2-36b7-4494-b274-1739efecf312",
       "name": "White, James and Coleman",
       "country": "Bhutan",
-      "currency": ["KZT", "Kazakhstani tenge"]
+      "currency": [
+        "KZT",
+        "Kazakhstani tenge"
+      ]
     },
     {
       "id": "872f6361-79c2-4b6b-9747-2e9b83fed694",
       "name": "Davis-Cardenas",
       "country": "Wallis and Futuna",
-      "currency": ["MVR", "Maldivian rufiyaa"]
+      "currency": [
+        "MVR",
+        "Maldivian rufiyaa"
+      ]
     },
     {
       "id": "db9ff892-98b5-4a9a-bf65-137fda8cffa2",
       "name": "Gonzales-Jones",
       "country": "Japan",
-      "currency": ["DOP", "Dominican peso"]
+      "currency": [
+        "DOP",
+        "Dominican peso"
+      ]
     }
   ],
   "products": [

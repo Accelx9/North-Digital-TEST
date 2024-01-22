@@ -1,7 +1,8 @@
+import { v4 as uuidv4 } from "uuid";
 import { Alert, InputText, Modal } from "@/components";
 import { useForm } from "@/hooks";
-import { Client, ErrorsClient, InitialStateClient } from "@/types";
-import { useState } from "react";
+import { Client, ErrorsClient, InitialStateClient, Sale } from "@/types";
+import { Dispatch, SetStateAction, useState } from "react";
 
 /**
  * Section to create a new client
@@ -9,8 +10,10 @@ import { useState } from "react";
  */
 export const FormClient = ({
   handleDismiss,
+  setClient,
 }: {
   handleDismiss: VoidFunction;
+  setClient: (client: Client) => void;
 }): React.JSX.Element => {
   // Notifications
   const [showAlert, setShowAlert] = useState(false);
@@ -46,15 +49,15 @@ export const FormClient = ({
   /**
    * Function that validates the form, creates the client and send the respective feedback to the user
    */
-  const handleValidate = () => {
-    const { address, lastNames, names, phone, rut } = values;
+  const handleValidate = async () => {
+    const { address, lastName, name, phone, rut } = values;
     setErrors({});
-    if (!names) {
+    if (!name) {
       handleAlert("warning", "The name is required.");
       setErrors((prev) => ({ ...prev, names: true }));
       return;
     }
-    if (!lastNames) {
+    if (!lastName) {
       handleAlert("warning", "The lastName is required.");
       setErrors((prev) => ({ ...prev, lastNames: true }));
       return;
@@ -74,6 +77,28 @@ export const FormClient = ({
       setErrors((prev) => ({ ...prev, phone: true }));
       return;
     }
+
+    const body: Client = {
+      ...values,
+      id: uuidv4(),
+    };
+    try {
+      const response = await fetch("api/clients", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (response.ok) {
+        setClient(body);
+        handleAlert("success", "Client added successfully");
+        handleDismiss();
+      }
+    } catch (error) {
+      handleAlert("error", "Ooops we had an error adding the client");
+    }
   };
 
   return (
@@ -89,17 +114,17 @@ export const FormClient = ({
       >
         <InputText
           label="Name"
-          name="names"
-          value={values.names}
+          name="name"
+          value={values.name}
           onChange={handleChange}
-          error={errors.names}
+          error={errors.name}
         />
         <InputText
-          label="LastNames"
-          name="lastNames"
-          value={values.lastNames}
+          label="LastName"
+          name="lastName"
+          value={values.lastName}
           onChange={handleChange}
-          error={errors.lastNames}
+          error={errors.lastName}
         />
         <InputText
           label="RUT"

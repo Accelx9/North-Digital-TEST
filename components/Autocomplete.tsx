@@ -3,25 +3,26 @@ import React, { InputHTMLAttributes, useEffect, useRef, useState } from "react";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  options?: { label: string; value: string }[];
+  options?: { label: string; value: unknown }[];
+  onChange: (value: any) => void;
+  errorMessage?: string;
+  error?: boolean;
+  value?: any;
 }
 
-const Options = [
-  {
-    label: "1",
-    value: "1",
-  },
-  {
-    label: "1",
-    value: "2",
-  },
-];
-
-export const AutoComplete = ({ label, options = Options, ...props }: Props) => {
-  const [value, setValue] = useState("");
+export const AutoComplete = ({
+  label,
+  value,
+  options = [],
+  onChange,
+  error,
+  errorMessage = "This field is required",
+  ...props
+}: Props) => {
+  const [text, setText] = useState<string>("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const suggestions = options.filter((option) =>
-    option.label.toLowerCase().includes(value.toLowerCase())
+    option.label.toLowerCase().includes(text.toLowerCase())
   );
 
   const autocompleteRef = useRef<any>();
@@ -42,11 +43,15 @@ export const AutoComplete = ({ label, options = Options, ...props }: Props) => {
   }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
+    setText(event.target.value);
   };
 
-  const handleSuggestionClick = (suggestion: string) => {
-    setValue(suggestion);
+  const handleSuggestionClick = (suggestion: {
+    label: string;
+    value: unknown;
+  }) => {
+    onChange(suggestion.value);
+    setText(suggestion.label);
     setShowSuggestions(false);
   };
 
@@ -58,22 +63,25 @@ export const AutoComplete = ({ label, options = Options, ...props }: Props) => {
         </label>
       )}
       <input
-        value={value}
+        value={text || value}
         onChange={handleChange}
         placeholder=""
         className={`h-16 p-4 outline-primary w-full bg-white ${
           label && "mt-2"
-        }`}
+        } ${error && "border border-red-400"}`}
         onFocus={() => setShowSuggestions(true)}
         {...props}
       />
+      {error && (
+        <p className="text-end text-sm mt-2 text-red-400">{errorMessage}</p>
+      )}
       {showSuggestions && (
         <ul className=" w-full absolute -bottom-30 z-50 bg-white list-none max-h-72 overflow-y-auto m-0 p-0 border-t border-t-grey">
-          {suggestions.map((suggestion) => (
+          {suggestions.map((suggestion, index) => (
             <li
               className="list-none bg-white hover:bg-light p-2 border-t border-t-grey"
-              onClick={() => handleSuggestionClick(suggestion.value)}
-              key={suggestion.value}
+              onClick={() => handleSuggestionClick(suggestion)}
+              key={index}
             >
               {suggestion.label}
             </li>

@@ -5,45 +5,22 @@ import { SaleDetails } from "@/sections";
 import { Sale } from "@/types";
 import Image from "next/image";
 import { useState } from "react";
-
-const sales: Sale[] = [
-  {
-    branchOffice: {
-      name: "Canada",
-      id: "1",
-    },
-    client: {
-      name: "Drakes",
-      id: "1",
-    },
-
-    currency: { name: "CAD", id: "1" },
-    details: [
-      {
-        name: "Devil dogs",
-        quantity: 100,
-        price: 4.5,
-      },
-    ],
-    date: new Date(),
-    totalSale: 10000,
-    id: "10",
-  },
-];
+import { sales } from "@/data.json";
 
 const Page = () => {
+  // Show Modal Details
   const [showDetails, setShowDetails] = useState(false);
   const [selectedItem, setSelectedItem] = useState<Sale>({} as Sale);
 
   // Functions
 
-  const handleToggleModal = (data?: Sale) => {
+  const handleToggleModal = (data?: any) => {
     setShowDetails(!showDetails);
     if (data) setSelectedItem(data);
   };
 
   return (
-    <div className="max-w-[85%] w-full h-full pb-4 sm:pb-0 sm:pt-10 m-auto">
+    <div className="overflow-hidden max-w-[85%] w-full h-full pb-4 sm:pb-0 sm:pt-10 m-auto">
       <div className="flex mt-2 sm:mt-0 items-end">
         <Image
           src={Person1.src}
@@ -62,7 +39,7 @@ const Page = () => {
         {sales.map((sale, index) => (
           <div
             key={index}
-            className="bg-white shadow-lg w-full  sm:w-64 h-44 p-3 rounded-lg"
+            className="bg-white shadow-lg w-full  sm:w-64 h-48 p-3 rounded-lg"
           >
             <h4 className="text-md">
               <strong>Date of sale: </strong>
@@ -74,7 +51,7 @@ const Page = () => {
             </h4>
             <h4 className="text-md">
               <strong>Branch Office: </strong>
-              {sale.branchOffice.name}{" "}
+              {sale.branchOffice?.name}{" "}
             </h4>
             <div className="flex mt-4 items-end justify-end">
               <Button className="h-9" onClick={() => handleToggleModal(sale)}>

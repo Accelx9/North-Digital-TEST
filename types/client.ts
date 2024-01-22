@@ -1,23 +1,25 @@
 export interface Client {
+  id: string;
   rut: string;
-  names: string;
-  lastNames: string;
+  name: string;
+  lastName: string;
   address: string;
   phone: string;
 }
 
 export const InitialStateClient: Client = {
   address: "",
-  lastNames: "",
-  names: "",
+  lastName: "",
+  name: "",
   phone: "",
   rut: "",
+  id: "",
 };
 
 export interface ErrorsClient {
   address?: boolean;
-  lastNames?: boolean;
-  names?: boolean;
+  lastName?: boolean;
+  name?: boolean;
   phone?: boolean;
   rut?: boolean;
 }

@@ -1,5 +1,7 @@
+import { Product } from "@/types";
+
 export const InitialStateDetails = {
   price: 0,
   quantity: 0,
-  name: "",
+  product: {} as Product,
 };

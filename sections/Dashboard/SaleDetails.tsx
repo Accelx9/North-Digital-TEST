@@ -22,7 +22,7 @@ export const SaleDetails = ({ sale }: { sale: Sale }) => {
         <div className="flex flex-col" key={index}>
           <p className="text-xl my-2">
             <strong>Name:</strong> {"   "}
-            {detail.name}
+            {detail.product.name}
           </p>
           <p className="text-xl my-2">
             <strong>Quantity:</strong> {"   "}

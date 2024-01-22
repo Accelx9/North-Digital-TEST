@@ -1,5 +1,7 @@
+import { Product } from ".";
+
 export interface Detail {
-  name: string;
+  product: Product;
   quantity: number;
   price: number;
 }

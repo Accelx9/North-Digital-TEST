@@ -49,7 +49,7 @@ export const Sidebar = () => {
           />
         ))}
       </div>
-      <aside className="pt-10 hidden md:block h-screen bg-primary w-20">
+      <aside className="pt-10 hidden md:block min-h-screen h-full bg-primary w-20">
         {MenuItems.map((item, index) => (
           <MenuItem
             key={index}

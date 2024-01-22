@@ -4,7 +4,7 @@ import Head from "next/head";
 
 export default function Home() {
   return (
-    <main className="h-full w-full overflow-x-hidden overflow-y-auto">
+    <main className="h-full w-full overflow-hidden ">
       <Navbar />
       <Head>
         <title>Home</title>
