@@ -16,12 +16,13 @@ export async function POST(req: Request, res: NextApiResponse) {
     existingData.clients.push(newClientObject);
 
     fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
-    return new NextResponse(JSON.stringify(newClientObject), {
+    return new NextResponse("Client added successfully!", {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST",
         "Access-Control-Allow-Headers": "Content-Type, Authorization",
       },
+      status: 200,
     });
   } catch (error) {
     res.status(500).json({ success: false, message: "Internal server error." });

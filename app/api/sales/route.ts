@@ -17,12 +17,13 @@ export async function POST(req: Request, res: NextApiResponse) {
     existingData.sales.push(newSalesObject);
 
     fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
-    return new NextResponse(JSON.stringify(newSalesObject), {
+    return new NextResponse("Sale created successfully!", {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST",
         "Access-Control-Allow-Headers": "Content-Type, Authorization",
       },
+      status: 200,
     });
   } catch (error) {
     res.status(500).json({ success: false, message: "Internal server error." });
