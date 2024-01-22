@@ -93,8 +93,8 @@ export const FormClient = ({
 
       if (response.ok) {
         setClient(body);
-        handleAlert("success", "Client added successfully");
         handleDismiss();
+        handleAlert("success", "Client added successfully");
       }
     } catch (error) {
       handleAlert("error", "Ooops we had an error adding the client");
