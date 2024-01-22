@@ -36,8 +36,8 @@
 @font-face {
   font-family: "Open Sans";
   src: url("../assets/fonts/OpenSans-SemiBold.ttf"),
-    url("../assets/fonts/OpenSans-SemiBold.ttf") format("truetype"),
-    url("../assets/fonts/OpenSans-SemiBold.ttf") format("tff");
+    url("../assets/fonts/OpenSans-Semibold.ttf") format("truetype"),
+    url("../assets/fonts/OpenSans-Semibold.ttf") format("tff");
   font-weight: 600;
   font-style: normal;
 }
