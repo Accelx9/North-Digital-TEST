@@ -3,7 +3,7 @@ import { NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 
-export async function POST(req: Request, res: NextRequest) {
+export async function POST(req: Request, res: NextApiResponse) {
   const filePath = path.join(process.cwd(), "data.json");
 
   try {
@@ -15,17 +15,8 @@ export async function POST(req: Request, res: NextRequest) {
     existingData.clients.push(newClientObject);
 
     fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
-    return new NextResponse("Client added successfully!", {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-      },
-      status: 200,
-    });
+    return res.status(200).send("Sale added");
   } catch (error) {
-    new NextResponse("Error", {
-      status: 500,
-    });
+    res.status(200).send("Sale added");
   }
 }
