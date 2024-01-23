@@ -1,8 +1,9 @@
-import { v4 as uuidv4 } from "uuid";
 import { Alert, InputText, Modal } from "@/components";
 import { useForm } from "@/hooks";
-import { Client, ErrorsClient, InitialStateClient, Sale } from "@/types";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Client, ErrorsClient, InitialStateClient } from "@/types";
+import { onlyLettersAndAccents, onlyNumbers } from "@/utils";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 /**
  * Section to create a new client
@@ -26,7 +27,7 @@ export const FormClient = ({
   });
 
   // Form values
-  const { values, handleChange, handleSubmit } =
+  const { values, handleChange, setValues, handleSubmit } =
     useForm<Client>(InitialStateClient);
   const [errors, setErrors] = useState<ErrorsClient>({});
 
@@ -44,6 +45,21 @@ export const FormClient = ({
     setTimeout(() => {
       setShowAlert(false);
     }, 3000);
+  };
+
+  const handleChangeWrapper = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = event.target;
+    if (name === "name" || name === "lastName") {
+      const result = onlyLettersAndAccents(value);
+      setValues((prev) => ({ ...prev, [name]: result }));
+      return;
+    }
+    if (name === "phone") {
+      const result = onlyNumbers(value);
+      setValues((prev) => ({ ...prev, [name]: result }));
+      return;
+    }
+    handleChange(event);
   };
 
   /**
@@ -116,35 +132,35 @@ export const FormClient = ({
           label="Name"
           name="name"
           value={values.name}
-          onChange={handleChange}
+          onChange={handleChangeWrapper}
           error={errors.name}
         />
         <InputText
           label="LastName"
           name="lastName"
           value={values.lastName}
-          onChange={handleChange}
+          onChange={handleChangeWrapper}
           error={errors.lastName}
         />
         <InputText
           label="RUT"
           name="rut"
           value={values.rut}
-          onChange={handleChange}
+          onChange={handleChangeWrapper}
           error={errors.rut}
         />
         <InputText
           label="Address"
           name="address"
           value={values.address}
-          onChange={handleChange}
+          onChange={handleChangeWrapper}
           error={errors.address}
         />
         <InputText
-          label="phone"
+          label="Phone"
           name="phone"
           value={values.phone}
-          onChange={handleChange}
+          onChange={handleChangeWrapper}
           error={errors.phone}
         />{" "}
         <Alert

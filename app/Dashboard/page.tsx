@@ -13,6 +13,7 @@ import {
   Product,
   Sale,
 } from "@/types";
+import { onlyNumbers } from "@/utils";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -326,13 +327,14 @@ const Home = () => {
             <div className="w-full mt-2 lg:mt-0 lg:w-1/3 ">
               <InputText
                 label="Quantity"
-                type="number"
+                type="text"
                 name="quantity"
                 min={0}
                 value={detail.quantity}
-                onChange={(event) =>
-                  handleChangeDetail("quantity", event.target.value, index)
-                }
+                onChange={(event) => {
+                  const result = onlyNumbers(event.target.value);
+                  handleChangeDetail("quantity", result, index);
+                }}
               />
             </div>
             <div className="w-full mt-2 lg:mt-0 lg:w-1/3 ">
